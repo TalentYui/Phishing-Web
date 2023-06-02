@@ -1,0 +1,1397 @@
+<html style="font-size: 137.6px;"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta charset="utf-8">
+    <title>登录</title>
+    <link href="static/common.css?v=3" rel="stylesheet">
+    <link href="static/style.css?v=4" rel="stylesheet">
+    <link href="static/login-type.css?v=7" rel="stylesheet">
+    <script src="static/jquery.min.js" type="text/javascript"></script>
+    <script src="static/ratio.js" type="text/javascript"></script>
+    <script src="static/util.js" type="text/javascript"></script>
+    <script src="static/jquery.base64.js" type="text/javascript"></script>
+    <script src="static/crypto-js.min.js" type="text/javascript"></script>
+    <script src="static/login.js?v=202211171" type="text/javascript"></script>
+    <script>var _CP_ = '';</script><style id="1.pl7xlju4xg">/* ==UserStyle==
+    @name layx
+    @namespace layx
+    @description layx css
+    @version 2.5.4
+    @author 百小僧/MonkSoul
+    @license MIT
+    @preprocessor default
+    @match        *://*/*
+    ==/UserStyle== */
+    /*!
+     * file : layx.css
+     * gitee : https://gitee.com/monksoul/LayX
+     * github : https://github.com/MonkSoul/Layx/
+     * author : 百小僧/MonkSoul
+     * version : v2.5.4
+     * create time : 2018.05.11
+     * update time : 2018.11.03
+     */
+    *[class^="layx-"] {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline: none;
+        border: none;
+        background-color: transparent;
+    }
+    
+    .layx-flexbox {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+    }
+    
+    .layx-flex-vertical {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-align-items: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-justify-content: flex-start;
+    }
+    
+    .layx-flex-center {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-justify-content: center;
+    }
+    
+    .layx-flexauto {
+        flex: 1;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+    }
+    
+    .layx-shade,
+    #layx-window-move {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+    }
+    
+    body.ilayx-body {
+        overflow: hidden !important;
+    }
+    
+    .layx-window {
+        position: fixed;
+        overflow: visible !important;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        color: #000;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        visibility: visible;
+        border: none;
+    }
+    
+    .layx-window.layx-flicker {
+        animation-name: layx-flicker;
+        -webkit-animation-name: layx-flicker;
+        -moz-animation-name: layx-flicker;
+        animation-duration: 0.12s;
+        -webkit-animation-duration: 0.12s;
+        -moz-animation-duration: 0.12s;
+        animation-iteration-count: 8;
+        -webkit-animation-iteration-count: 8;
+        -moz-animation-iteration-count: 8;
+    }
+    
+    .layx-window.layx-max-statu, .layx-window.layx-max-statu .layx-control-bar, .layx-window.layx-max-statu .layx-main, .layx-window.layx-max-statu .layx-statu-bar {
+        border-radius: 0px !important;
+        -webkit-border-radius: 0px !important;
+        -moz-border-radius: 0px !important;
+    }
+    
+    .layx-window.layx-min-statu {
+        min-height: 0 !important;
+        overflow: hidden !important;
+        min-width: 0 !important;
+    }
+    
+    .layx-window.layx-min-statu .layx-title {
+        overflow: hidden !important;
+    }
+    
+    .layx-window.layx-min-statu .layx-inlay-menus .layx-stick-menu,
+    .layx-window.layx-min-statu .layx-inlay-menus .layx-debug-menu {
+        display: none;
+    }
+    
+    .layx-window.layx-bubble-type {
+        overflow: visible !important;
+        position: absolute !important;
+    }
+    
+    .layx-window.layx-hide-statu {
+        display: none !important;
+    }
+    
+    .layx-control-bar {
+        min-height: 30px;
+        overflow: hidden;
+        width: 100%;
+        padding-left: 5px;
+    }
+    
+    .layx-iconfont {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+        font-size: 14px;
+        line-height: normal;
+        display: block;
+        line-height: normal;
+    }
+    
+    .layx-icon {
+        text-align: center;
+    }
+    
+    .layx-icon * {
+        pointer-events: none;
+    }
+    
+    .layx-left-bar {
+        margin-right: 5px;
+    }
+    
+    .layx-window-icon {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    
+    .layx-window-icon .layx-iconfont {
+        font-size: 16px;
+    }
+    
+    .layx-title,
+    .layx-group-tab {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin-right: 5px;
+        min-width: 0;
+        -ms-touch-action: none;
+        touch-action: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    
+    .layx-title {
+        -webkit-app-region: drag;
+    }
+    
+    .layx-group-tab {
+        -webkit-app-region: no-drag;
+    }
+    
+    .layx-title .layx-label,
+    .layx-group-title .layx-label {
+        line-height: normal;
+        font-size: 14px;
+        max-width: 100%;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        pointer-events: none;
+        visibility: visible;
+        position: relative;
+        top: -1px;
+        top: 0px\0;
+    }
+    
+    .layx-group-tab .layx-label {
+        line-height: 28px;
+    }
+    
+    .layx-group-tab.layx-type-group {
+        overflow: visible;
+        margin-right: 0;
+        border-bottom: 1px solid #dddddd;
+    }
+    
+    .layx-control-bar.layx-type-group {
+        overflow: visible;
+        border-bottom: 1px solid #dddddd;
+    }
+    
+    .layx-group-title {
+        height: 27px;
+        line-height: 25px;
+        max-width: 150px;
+        width: 150px;
+        padding: 0 8px;
+        background-color: #f5f5f5;
+        border: 1px solid #dddddd;
+        border-width: 1px 1px 0 0;
+        position: relative;
+        color: #666;
+        white-space: nowrap;
+        min-width: 0;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    
+    .layx-title.layx-type-group .layx-group-title {
+        height: 30px;
+        line-height: 34px;
+    }
+    
+    .layx-title.layx-type-group {
+        overflow: visible;
+    }
+    
+    .layx-title.layx-type-group .layx-group-title:first-child {
+        border-left: 1px solid #dddddd;
+    }
+    
+    .layx-group-title[data-enable="1"] {
+        background-color: #fff;
+        color: #000;
+    }
+    
+    .layx-group-title[data-enable="1"]::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        content: '';
+        border-bottom: 1px solid #fff;
+    }
+    
+    .layx-inlay-menus {
+        height: 100%;
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+        max-height: 30px;
+        z-index: 2;
+    }
+    
+    .layx-inlay-menus .layx-icon {
+        width: 45px;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    
+    .layx-inlay-menus .layx-icon:hover {
+        background-color: #e5e5e5;
+    }
+    
+    .layx-inlay-menus .layx-icon.layx-destroy-menu:hover {
+        background-color: #e81123 !important;
+        color: #fff !important;
+    }
+    
+    .layx-inlay-menus .layx-icon.layx-stick-menu[data-enable='1'] {
+        color: #f00;
+    }
+    
+    .layx-main {
+        overflow: auto;
+        position: relative;
+        clear: both;
+        -webkit-overflow-scrolling: touch;
+        -webkit-transform: translate3d(0, 0, 0);
+        -webkit-app-region: no-drag;
+    }
+    
+    .layx-readonly {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        z-index: 199205270356;
+    }
+    
+    .layx-group-main {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        visibility: hidden;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    
+    .layx-group-main[data-enable="1"] {
+        z-index: 1;
+        visibility: visible;
+    }
+    
+    .layx-mouse-preventDefault {
+        position: absolute;
+        z-index: 3;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        background-color: transparent;
+    }
+    
+    .layx-content-shade {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        overflow: hidden;
+        background-color: #fff;
+    }
+    
+    .layx-html {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        -webkit-overflow-scrolling: touch;
+        -webkit-transform: translate3d(0, 0, 0);
+        overflow: auto;
+    }
+    
+    .layx-dialog-icon {
+        margin-right: 10px;
+        position: relative;
+        top: -5px;
+    }
+    
+    .layx-dialog-icon .layx-iconfont {
+        font-size: 40px !important;
+    }
+    
+    .layx-dialog-msg .layx-dialog-icon .layx-iconfont, .layx-dialog-tip .layx-dialog-icon .layx-iconfont {
+        font-size: 25px !important;
+    }
+    
+    .layx-dialog-msg .layx-dialog-icon, .layx-dialog-tip .layx-dialog-icon {
+        top: 0;
+    }
+    
+    .layx-dialog-icon-success {
+        color: #01AAED;
+    }
+    
+    .layx-dialog-icon-warn {
+        color: #FFB800;
+    }
+    
+    .layx-dialog-icon-error {
+        color: #f00;
+    }
+    
+    .layx-dialog-icon-help {
+        color: #009688;
+    }
+    
+    .layx-dialog-msg,
+    .layx-dialog-tip,
+    .layx-dialog-load {
+        color: #000;
+        padding: 10px;
+    }
+    
+    .layx-dialog-alert,
+    .layx-dialog-confirm,
+    .layx-dialog-prompt {
+        padding: 10px;
+        color: #039;
+    }
+    
+    .layx-dialog-prompt {
+        width: 100%;
+    }
+    
+    .layx-dialog-msg, .layx-dialog-tip {
+        height: 100%;
+    }
+    
+    .layx-dialog-content {
+        font-size: 14px;
+    }
+    
+    .layx-textarea {
+        display: block;
+        border: 1px solid #dddddd;
+        width: 100%;
+        resize: none;
+        height: 60px;
+        margin-top: 8px;
+        padding: 8px;
+        font-size: 15px;
+        color: #000;
+        line-height: 1.5;
+    }
+    
+    .layx-textarea:focus {
+        border: 1px solid #3baced;
+    }
+    
+    .layx-buttons {
+        padding: 8px 10px;
+        text-align: right;
+    }
+    
+    .layx-button-item {
+        padding: 0 16px;
+        height: 24px;
+        line-height: normal;
+        color: #000;
+        font-size: 14px;
+        border: 1px solid #adadad;
+        outline: none;
+        margin-left: 8px;
+        display: inline-block;
+        background-color: #e1e1e1;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    .layx-buttons .layx-button-item:hover {
+        background-color: #e5f1fb;
+        border: 1px solid #0078d7;
+    }
+    
+    .layx-buttons .layx-button-item[disabled] {
+        color: #999;
+        cursor: not-allowed;
+    }
+    
+    .layx-buttons .layx-button-item[disabled]:hover {
+        background-color: #e1e1e1;
+        border: 1px solid #adadad;
+    }
+    
+    .layx-iframe {
+        width: 1px;
+        min-width: 100%;
+        *width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    .layx-statu-bar {
+        border-top: 1px solid #dddddd;
+        min-height: 25px;
+        background-color: #eeeef2;
+    }
+    
+    .layx-resizes[data-enable='0'] {
+        visibility: hidden;
+    }
+    
+    .layx-resizes > div {
+        position: absolute;
+        z-index: 3;
+        -ms-touch-action: none;
+        touch-action: none;
+    }
+    
+    .layx-resize-top,
+    .layx-resize-bottom {
+        height: 3px;
+        left: 3px;
+        right: 3px;
+    }
+    
+    .layx-resize-top {
+        top: 0;
+        cursor: n-resize;
+    }
+    
+    .layx-resize-bottom {
+        bottom: 0;
+        cursor: s-resize;
+    }
+    
+    .layx-resize-left,
+    .layx-resize-right {
+        width: 3px;
+        top: 3px;
+        bottom: 3px;
+    }
+    
+    .layx-resize-left {
+        left: 0;
+        cursor: w-resize;
+    }
+    
+    .layx-resize-right {
+        right: 0;
+        cursor: e-resize;
+    }
+    
+    .layx-resize-left-top,
+    .layx-resize-right-top,
+    .layx-resize-left-bottom,
+    .layx-resize-right-bottom {
+        width: 3px;
+        height: 3px;
+    }
+    
+    .layx-resize-left-top {
+        left: 0;
+        top: 0;
+        cursor: nw-resize;
+    }
+    
+    .layx-resize-right-top {
+        right: 0;
+        top: 0;
+        cursor: ne-resize;
+    }
+    
+    .layx-resize-left-bottom {
+        left: 0;
+        bottom: 0;
+        cursor: sw-resize;
+    }
+    
+    .layx-resize-right-bottom {
+        right: 0;
+        bottom: 0;
+        cursor: se-resize;
+    }
+    
+    .layx-resize-top.layx-reisize-touch,
+    .layx-resize-bottom.layx-reisize-touch {
+        height: 16px;
+        left: 16px;
+        right: 16px;
+    }
+    
+    .layx-resize-left.layx-reisize-touch,
+    .layx-resize-right.layx-reisize-touch {
+        width: 16px;
+        top: 16px;
+        bottom: 16px;
+    }
+    
+    .layx-resize-left-top.layx-reisize-touch,
+    .layx-resize-right-top.layx-reisize-touch,
+    .layx-resize-left-bottom.layx-reisize-touch,
+    .layx-resize-right-bottom.layx-reisize-touch {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .layx-resize-top.layx-reisize-touch {
+        top: -8px;
+    }
+    
+    .layx-resize-bottom.layx-reisize-touch {
+        bottom: -8px;
+    }
+    
+    .layx-resize-left.layx-reisize-touch {
+        left: -8px;
+    }
+    
+    .layx-resize-right.layx-reisize-touch {
+        right: -8px;
+    }
+    
+    .layx-resize-left-top.layx-reisize-touch {
+        left: -8px;
+        top: -8px;
+    }
+    
+    .layx-resize-right-top.layx-reisize-touch {
+        right: -8px;
+        top: -8px;
+    }
+    
+    .layx-resize-left-bottom.layx-reisize-touch {
+        left: -8px;
+        bottom: -8px;
+    }
+    
+    .layx-resize-right-bottom.layx-reisize-touch {
+        right: -8px;
+        bottom: -8px;
+    }
+    
+    .layx-resize-left[data-enable='0'],
+    .layx-resize-top[data-enable='0'],
+    .layx-resize-right[data-enable='0'],
+    .layx-resize-bottom[data-enable='0'],
+    .layx-resize-left-top[data-enable='0'],
+    .layx-resize-left-bottom[data-enable='0'],
+    .layx-resize-right-top[data-enable='0'],
+    .layx-resize-right-bottom[data-enable='0'] {
+        visibility: hidden;
+    }
+    
+    .layx-auto-destroy-tip {
+        position: absolute;
+        bottom: 3px;
+        right: 3px;
+        height: 25px;
+        line-height: 25px;
+        z-index: 5;
+        color: #444;
+        background-color: #f1f1f1;
+        padding: 0 8px;
+        font-size: 13px;
+    }
+    
+    .layx-code {
+        border: 1px solid #dedede;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        -webkit-overflow-scrolling: touch;
+        -webkit-transform: translate3d(0, 0, 0);
+        background: #f5f5f5;
+        overflow: auto;
+    }
+    
+    .layx-bubble,
+    .layx-bubble-inlay {
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+    
+    .layx-bubble-bottom {
+        top: -11px;
+        left: 2px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 11px solid transparent;
+    }
+    
+    .layx-bubble-inlay-bottom {
+        top: 2px;
+        left: -9px;
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+    }
+    
+    .layx-bubble-top {
+        bottom: -11px;
+        left: 2px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 11px solid transparent;
+    }
+    
+    .layx-bubble-inlay-top {
+        bottom: 2px;
+        left: -9px;
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+        border-top: 9px solid transparent;
+    }
+    
+    .layx-bubble-right {
+        top: 2px;
+        left: -11px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 11px solid transparent;
+    }
+    
+    .layx-bubble-inlay-right {
+        top: -9px;
+        left: 2px;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        border-right: 9px solid transparent;
+    }
+    
+    .layx-bubble-left {
+        top: 2px;
+        right: -11px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 11px solid transparent;
+    }
+    
+    .layx-bubble-inlay-left {
+        top: -9px;
+        right: 2px;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        border-left: 9px solid transparent;
+    }
+    
+    .layx-pre {
+        height: auto;
+        width: 100%;
+        font-size: 14px;
+        font-family: Arial;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        display: block;
+        font-family: Arial;
+    }
+    
+    .layx-dot {
+        display: inline-block;
+        width: 25px;
+    }
+    
+    .layx-load-animate {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        margin-right: 10px;
+    }
+    
+    .layx-load-inner, .layx-load-inner2 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        overflow: hidden;
+        left: 0;
+        top: 0;
+    }
+    
+    .layx-load-inner {
+        opacity: 1;
+        background-color: #89abdd;
+        -webkit-animation: layx-second-half-hide 1.6s steps(1, end) infinite;
+        animation: layx-second-half-hide 1.6s steps(1, end) infinite;
+        -moz-animation: layx-second-half-hide 1.6s steps(1, end) infinite;
+    }
+    
+    .layx-load-inner2 {
+        opacity: 0;
+        background-color: #4b86db;
+        -webkit-animation: layx-second-half-show 1.6s steps(1, end) infinite;
+        animation: layx-second-half-show 1.6s steps(1, end) infinite;
+        -moz-animation: layx-second-half-show 1.6s steps(1, end) infinite;
+    }
+    
+    .layx-load-spiner, .layx-load-filler, .layx-load-masker {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+    }
+    
+    .layx-load-spiner {
+        border-radius: 40px 0 0 40px;
+        -webkit-border-radius: 40px 0 0 40px;
+        -moz-border-radius: 40px 0 0 40px;
+        background-color: #4b86db;
+        -webkit-transform-origin: right center;
+        -ms-transform-origin: right center;
+        transform-origin: right center;
+        -moz-transform-origin: right center;
+        -webkit-animation: layx-spin 800ms infinite linear;
+        animation: layx-spin 800ms infinite linear;
+        -moz-animation: layx-spin 800ms infinite linear;
+        left: 0;
+        top: 0;
+    }
+    
+    .layx-load-filler {
+        border-radius: 0 40px 40px 0;
+        -webkit-border-radius: 0 40px 40px 0;
+        -moz-border-radius: 0 40px 40px 0;
+        background-color: #4b86db;
+        -webkit-animation: layx-second-half-hide 800ms steps(1, end) infinite;
+        animation: layx-second-half-hide 800ms steps(1, end) infinite;
+        -moz-animation: layx-second-half-hide 800ms steps(1, end) infinite;
+        left: 50%;
+        top: 0;
+        opacity: 1;
+    }
+    
+    .layx-load-masker {
+        border-radius: 40px 0 0 40px;
+        -moz-border-radius: 40px 0 0 40px;
+        -webkit-border-radius: 40px 0 0 40px;
+        background-color: #89abdd;
+        -webkit-animation: layx-second-half-show 800ms steps(1, end) infinite;
+        animation: layx-second-half-show 800ms steps(1, end) infinite;
+        -moz-animation: layx-second-half-show 800ms steps(1, end) infinite;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+    
+    .layx-load-inner2 .layx-load-spiner, .layx-load-inner2 .layx-load-filler {
+        background-color: #89abdd;
+    }
+    
+    .layx-load-inner2 .layx-load-masker {
+        background-color: #4b86db;
+    }
+    /*default 皮肤*/
+    .layx-window.layx-skin-default {
+        border: 1px solid #3baced;
+    }
+    
+    .layx-window.layx-skin-default .layx-control-bar {
+        background-color: #fff;
+    }
+    
+    .layx-window.layx-skin-default .layx-inlay-menus .layx-icon:hover {
+    }
+    
+    .layx-window.layx-skin-default .layx-button-item {
+    }
+    
+    .layx-window.layx-skin-default .layx-button-item:hover {
+    }
+    /*cloud 皮肤*/
+    .layx-window.layx-skin-cloud {
+    }
+    
+    .layx-window.layx-skin-cloud .layx-control-bar {
+        background-color: #ecf0f1;
+    }
+    
+    .layx-window.layx-skin-cloud .layx-inlay-menus .layx-icon:hover {
+        background-color: #bdc3c7;
+    }
+    
+    .layx-window.layx-skin-cloud .layx-button-item {
+        background-color: #ecf0f1;
+        border: 1px solid #ccc;
+    }
+    
+    .layx-window.layx-skin-cloud .layx-button-item:hover {
+        background-color: #bdc3c7;
+        color: #fff;
+        border: 1px solid #ecf0f1;
+    }
+    
+    /*turquoise 皮肤*/
+    .layx-window.layx-skin-turquoise {
+    }
+    
+    .layx-window.layx-skin-turquoise .layx-control-bar {
+        background-color: #1abc9c;
+        color: #fff;
+    }
+    
+    .layx-window.layx-skin-turquoise .layx-inlay-menus .layx-icon:hover {
+        background-color: #16a085;
+    }
+    
+    .layx-window.layx-skin-turquoise .layx-button-item {
+        background-color: #1abc9c;
+        color: #fff;
+        border: 1px solid#1abc9c;
+    }
+    
+    .layx-window.layx-skin-turquoise .layx-button-item:hover {
+        background-color: #16a085;
+        border: 1px solid #1abc9c;
+    }
+    /*river 皮肤*/
+    .layx-window.layx-skin-river {
+    }
+    
+    .layx-window.layx-skin-river .layx-control-bar {
+        background-color: #3498db;
+        color: #fff;
+    }
+    
+    .layx-window.layx-skin-river .layx-inlay-menus .layx-icon:hover {
+        background-color: #2980b9;
+    }
+    
+    .layx-window.layx-skin-river .layx-button-item {
+        background-color: #3498db;
+        color: #fff;
+        border: 1px solid #3498db;
+    }
+    
+    .layx-window.layx-skin-river .layx-button-item:hover {
+        background-color: #2980b9;
+        border: 1px solid #3498db;
+    }
+    
+    /*asphalt 皮肤*/
+    .layx-window.layx-asphalt-river {
+    }
+    
+    .layx-window.layx-skin-asphalt .layx-control-bar {
+        background-color: #34495e;
+        color: #fff;
+    }
+    
+    .layx-window.layx-skin-asphalt .layx-inlay-menus .layx-icon:hover {
+        background-color: #2c3e50;
+    }
+    
+    .layx-window.layx-skin-asphalt .layx-button-item {
+        background-color: #34495e;
+        color: #fff;
+        border: 1px solid #34495e;
+    }
+    
+    .layx-window.layx-skin-asphalt .layx-button-item:hover {
+        background-color: #2c3e50;
+        border: 1px solid #34495e;
+    }
+    
+    @keyframes layx-flicker {
+        from {
+            -webkit-box-shadow: 1px 1px 24px rgba(0, 0, 0, .3);
+            box-shadow: 1px 1px 24px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 1px 1px 24px rgba(0, 0, 0, .3);
+        }
+    
+        to {
+            -webkit-box-shadow: 1px 1px 12px rgba(0, 0, 0, .3);
+            box-shadow: 1px 1px 12px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 1px 1px 12px rgba(0, 0, 0, .3);
+        }
+    }
+    
+    @-webkit-keyframes layx-flicker {
+        from {
+            -webkit-box-shadow: 1px 1px 24px rgba(0, 0, 0, .3);
+            box-shadow: 1px 1px 24px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 1px 1px 24px rgba(0, 0, 0, .3);
+        }
+    
+        to {
+            -webkit-box-shadow: 1px 1px 12px rgba(0, 0, 0, .3);
+            box-shadow: 1px 1px 12px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 1px 1px 12px rgba(0, 0, 0, .3);
+        }
+    }
+    
+    @-webkit-keyframes layx-spin {
+        0% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+        }
+    
+        100% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+        }
+    }
+    
+    @keyframes layx-spin {
+        0% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+        }
+    
+        100% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+        }
+    }
+    
+    @-webkit-keyframes layx-second-half-hide {
+        0% {
+            opacity: 1;
+        }
+    
+        50%, 100% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes layx-second-half-hide {
+        0% {
+            opacity: 1;
+        }
+    
+        50%, 100% {
+            opacity: 0;
+        }
+    }
+    
+    @-webkit-keyframes layx-second-half-show {
+        0% {
+            opacity: 0;
+        }
+    
+        50%, 100% {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes layx-second-half-show {
+        0% {
+            opacity: 0;
+        }
+    
+        50%, 100% {
+            opacity: 1;
+        }
+    }</style></head>
+    
+    <body><svg aria-hidden="true" style="position: absolute; width: 0px; height: 0px; overflow: hidden;"><symbol id="layx-icon-warn" viewBox="0 0 1044 1024"><path d="M589.8368 120.10666667q2.88 4.8 19.68 33.12t42.24 71.52 57.12 97.92 65.28 111.84 66.72 113.28 60.48 103.2 47.04 80.64 27.36 46.08q14.4 24 17.76 48t-2.88 43.2-22.08 31.2-38.88 11.04q-11.52 0-48.96-0.48t-90.24-0.48l-120 0-135.36 0q-69.12 0-137.28 0.48t-126.72 0.48l-102.72 0-65.28 0q-36.48 0-56.16-12.48t-26.4-32.16-1.44-42.72 18.72-43.2q6.72-10.56 26.4-43.2t47.52-79.2 61.44-102.72 68.16-114.24 67.2-112.8 58.56-98.88 43.2-72.96l20.16-33.6q13.44-21.12 35.04-32.16t44.64-11.04 44.64 10.08 35.04 30.24zM565.8368 308.26666667q0-11.52-5.28-21.6t-13.92-18.24-19.68-12.96-22.56-4.8q-22.08 0-40.8 17.28t-18.72 39.36l0 251.52q0 22.08 18.72 39.84t40.8 17.76q23.04 0 42.24-16.8t19.2-38.88l0-252.48zM504.3968 673.06666667q-24.96 0-42.72 17.28t-17.76 42.24 17.76 42.72 42.72 17.76 42.24-17.76 17.28-42.72-17.28-42.24-42.24-17.28z"></path></symbol><symbol id="layx-icon-help" viewBox="0 0 1024 1024"><path d="M512.697383 63.444984c-247.538793 0-448.208115 200.649879-448.208115 448.208115 0 247.520373 200.66932199 448.208115 448.208115 448.20811499s448.208115-200.68774199 448.20811499-448.20811499C960.90549801 264.094864 760.236176 63.444984 512.697383 63.444984zM510.98846199 735.138056c-25.550932 0-46.25958-21.30114199-46.25958-47.563272s20.708648-47.563272 46.25958-47.563272c25.56116599 0 46.269813 21.30114199 46.26981301 47.563272S536.548604 735.138056 510.98846199 735.138056zM640.211569 436.222129c-6.383384 12.29195401-13.970176 22.86986999-22.75116701 31.769564-8.78098999 8.936533-24.55730201 23.927969-47.29925899 45.046962-6.291287 5.945409-11.334139 11.161201-15.11934899 15.684214-3.792373 4.48719799-6.619768 8.608052-8.46274201 12.365632-1.868557 3.71971799-3.291976 7.47729799-4.303003 11.197016-1.013073 3.756557-2.543939 10.32208999-4.57929499 19.73343699-3.518127 19.95037801-14.524808 29.910217-33.02720802 29.91021701-9.611915 0-17.70831401-3.24797401-24.26565998-9.775644-6.573719-6.529717-9.848299-16.194844-9.84829901-29.071106 0-16.086373 2.39862999-30.05552601 7.204076-41.83685101 4.814656-11.818163 11.18882999-22.177092 19.150152-31.07678599 7.960299-8.89969399 18.684548-19.514449 32.17991-31.806403 11.835559-10.724249 20.39858601-18.821671 25.660426-24.293289 5.287423-5.470595 9.72038601-11.562337 13.32344701-18.273179 3.610224-6.711865 5.415336-14.007015 5.415336-21.84861101 0-15.355733-5.508457-28.305673-16.50388201-38.84572699-11.016915-10.541077-25.205055-15.830547-42.594097-15.830547-20.354584 0-35.33578599 5.325285-44.94770099 15.975856-9.62010199 10.650571-17.754363 26.29794599-24.42017901 47.05264199-6.291287 21.66646199-18.219967 32.49918199-35.791158 32.49918201-10.349719 0-19.10308-3.793396-26.217105-11.380188-7.121188-7.586792-10.6782-15.793708-10.6782-24.583908 0-18.237363 5.635347-36.694737 16.915251-55.405891 11.279904-18.67533799 27.757181-34.17638 49.396014-46.43251901 21.63064599-12.292977 46.888913-18.420535 75.742055-18.42053499 26.825972 0 50.489928 5.143137 71.025637 15.392572 20.534685 10.249435 36.39286199 24.219611 47.580668 41.83685099 11.189853 17.654079 16.788361 36.839023 16.78836099 57.557904C649.785621 409.668357 646.593929 423.96701401 640.211569 436.222129z"></path></symbol><symbol id="layx-icon-right" viewBox="0 0 1024 1024"><path d="M511.59752247 82.09957256c-237.19528125 0-429.47861308 192.28333184-429.4786131 429.47771397 0 237.19528125 192.28333184 429.47771396 429.47861309 429.47771396 237.19438213 0 429.47681484-192.28153271 429.47681485-429.47771396C941.07343818 274.38380352 748.79100547 82.09957256 511.59752247 82.09957256zM416.15603193 750.07218711L225.32791396 559.24676651l47.61641602-47.61641602L416.15603193 654.84205332l334.09018653-334.09198564 47.6155169 47.61461689L416.15603193 750.07218711z"></path></symbol><symbol id="layx-icon-restore" viewBox="0 0 1157 1024"><path d="M1016.52185234 724.44050175L833.87364805 724.44050175 833.87364805 898.52098643 833.87364805 960.05279112 833.87364805 961.2211168 772.34184336 961.2211168 772.34184336 960.05279112 124.31068789 960.05279112 124.31068789 961.2211168 62.7788832 961.2211168 62.7788832 960.05279112 62.7788832 898.52098643 62.7788832 360.31241885 62.7788832 298.78061416 124.31068789 298.78061416 298.78061416 298.78061416 298.78061416 62.7788832 303.06447442 62.7788832 360.31241885 62.7788832 1016.52185234 62.7788832 1074.15923838 62.7788832 1078.05365615 62.7788832 1078.05365615 662.90869795 1078.05365615 724.44050175 1016.52185234 724.44050175ZM124.31068789 898.52098643L772.34184336 898.52098643 772.34184336 724.44050175 772.34184336 662.90869795 772.34184336 360.31241885 124.31068789 360.31241885 124.31068789 898.52098643ZM1016.52185234 124.31068789L360.31241885 124.31068789 360.31241885 298.78061416 772.34184336 298.78061416 833.87364805 298.78061416 833.87364805 360.31241885 833.87364805 662.90869795 1016.52185234 662.90869795 1016.52185234 124.31068789Z"></path></symbol><symbol id="layx-icon-reload" viewBox="0 0 1024 1024"><path d="M919.8125 399.5L751.0625 399.5c-23.203125 0-42.1875-18.984375-42.1875-42.1875 0-23.203125 18.984375-42.1875 42.1875-42.1875l68.90625 0C755.28125 213.875 641.375 146.375 512 146.375c-201.796875 0-365.625 163.828125-365.625 365.625 0 201.796875 163.828125 365.625 365.625 365.625 196.875 0 357.890625-156.09375 364.921875-351.5625l0.703125 0c0-23.203125 18.984375-42.1875 42.1875-42.1875 23.203125 0 42.1875 18.984375 42.1875 42.1875 0 2.8125 0 5.625-0.703125 7.734375C950.046875 772.15625 753.171875 962 512 962 263.796875 962 62 760.203125 62 512 62 263.796875 263.796875 62 512 62c150.46875 0 284.0625 73.828125 365.625 187.734375L877.625 188.5625c0-23.203125 18.984375-42.1875 42.1875-42.1875 23.203125 0 42.1875 18.984375 42.1875 42.1875l0 168.75C962 380.515625 943.015625 399.5 919.8125 399.5z"></path></symbol><symbol id="layx-icon-default-icon" viewBox="0 0 1024 1024"><path d="M891.88743395 61.93952995L132.11256605 61.93952995c-38.92547129 0-70.60411733 31.65534435-70.60411734 70.5924665L61.50844871 891.46800355c0 38.91382045 31.67864605 70.59246649 70.60411734 70.5924665l759.7748679 0c38.92547129 0 70.60411733-31.67864605 70.60411734-70.5924665L962.49155129 132.53199645C962.49155129 93.59487431 930.81290525 61.93952995 891.88743395 61.93952995zM844.02576498 142.29540409c16.71896178 0 30.25724302 13.54993209 30.25724302 30.26889386 0 16.70731093-13.53828125 30.25724302-30.25724302 30.25724303s-30.25724302-13.54993209-30.25724303-30.25724303C813.76852195 155.84533618 827.3068032 142.29540409 844.02576498 142.29540409zM735.60300658 142.29540409c16.71896178 0 30.25724302 13.54993209 30.25724302 30.26889386 0 16.70731093-13.53828125 30.25724302-30.25724302 30.25724303s-30.25724302-13.54993209-30.25724303-30.25724303C705.34576355 155.84533618 718.8840448 142.29540409 735.60300658 142.29540409zM881.80945351 881.37837227L142.19054649 881.37837227 142.19054649 277.92288427l739.60725618 0L881.79780267 881.37837227zM758.85809209 638.26020125l-0.01165084-180.19196018 90.09598008 90.09598008L758.85809209 638.26020125zM265.15355875 638.26020125l-90.09598008-90.0959801 90.08432924-90.08432924L265.15355875 638.26020125z"></path></symbol><symbol id="layx-icon-min" viewBox="0 0 1024 1024"><path d="M65.23884 456.152041 958.760137 456.152041l0 111.695918L65.23884 567.847959 65.23884 456.152041z"></path></symbol><symbol id="layx-icon-max" viewBox="0 0 1024 1024"><path d="M75.74912227 948.24738475L75.74912227 75.75145131l872.50059037 0 0 872.49593344L75.74912227 948.24738475zM839.18786674 184.81446115L184.81213326 184.81446115l0 654.37573462 654.37573461 0L839.18786674 184.81446115z"></path></symbol><symbol id="layx-icon-debug" viewBox="0 0 1024 1024"><path d="M990.18635001 578.93861562c0 10.3648125-3.782715 19.33089375-11.35486126 26.90304001-7.57310531 7.57310531-16.5372675 11.3606175-26.89728375 11.3606175L818.04354219 617.20227312c0 68.14739625-13.34551219 125.92518281-40.04900719 173.34295313l124.32690656 124.934175c7.57214625 7.56159281 11.3606175 16.53247125 11.3606175 26.89728375 0 10.36001625-3.782715 19.32609657-11.3606175 26.89824281-7.17497531 7.56159281-16.13434125 11.350065-26.89728375 11.350065-10.75814625 0-19.72518656-3.78847125-26.89728375-11.350065L730.17287844 851.51860625c-1.99161001 1.98585375-4.97710594 4.578975-8.96128407 7.765935-3.9928125 3.186-12.3564225 8.872065-25.11097499 17.03612906-12.74879625 8.17078031-25.70193375 15.44360906-38.84982 21.82136531-13.1526825 6.37295906-29.49616125 12.15591844-49.02180283 17.33736563-19.52564156 5.17281281-38.85653531 7.76785313-57.97733155 7.76785312L550.251665 387.6750125l-76.51100531 0 0 535.57224188c-20.31422719 0-40.54690875-2.69481281-60.66351-8.07676407-20.13099094-5.376195-37.46260031-11.95253625-52.00921781-19.72422656-14.54853562-7.77169125-27.69546281-15.53666625-39.44749501-23.31315376-11.75778844-7.77265031-20.419755-14.24346281-26.0060475-19.4201128l-8.96128406-8.3741625L177.26614999 968.07478156c-7.96931719 8.36360906-17.53115344 12.55021125-28.69318593 12.55021125-9.56375531 0-18.12691031-3.19175625-25.69617844-9.56471531-7.57406437-7.17401625-11.659935-16.040325-12.26336531-26.59892625-0.59383781-10.55956031 2.49334969-19.82208094 9.27499125-27.79427531l120.73797938-135.68176782c-23.10977156-45.43575469-34.66897406-100.03041937-34.66897407-163.79071031L72.06771406 617.19459781c-10.36673156 0-19.32801562-3.78847125-26.89728375-11.35486124-7.57406437-7.5769425-11.36253657-16.5382275-11.36253656-26.90304 0-10.36001625 3.78847125-19.33089375 11.36253656-26.89632469 7.56926812-7.56830906 16.53055219-11.35102406 26.89728375-11.35102407l133.88874375 0L205.95645781 364.95953375l-103.40828906-103.40828906c-7.57022719-7.57310531-11.35678031-16.5382275-11.35678031-26.89824281 0-10.35905625 3.79134938-19.33089375 11.35678031-26.89728376 7.56734906-7.57214625 16.53630844-11.36541469 26.89824281-11.36541469 10.36577156 0 19.32417844 3.79902469 26.89920188 11.3654147l103.40828906 103.40828906 504.49507219 0 103.40924812-103.40828907c7.56639001-7.57214625 16.53055219-11.36541469 26.89728375-11.36541469 10.36001625 0 19.32897469 3.79902469 26.89632469 11.36541469 7.57310531 7.56639001 11.36157655 16.5382275 11.36157656 26.89728375 0 10.36001625-3.78847125 19.32609657-11.36157656 26.89824282l-103.40828906 103.40828906 0 175.73269312 133.88970281 0c10.3648125 0 19.32993469 3.782715 26.89728375 11.35678032 7.57214625 7.56543094 11.3606175 16.53630844 11.3606175 26.89056843l0 0L990.18635001 578.93861562 990.18635001 578.93861562zM703.26983938 234.64820469L320.72056719 234.64820469c0-52.99351031 18.62960906-98.12611031 55.89074625-135.38820656 37.25058375-37.26209625 82.3899-55.88594906 135.38532843-55.88594907 52.99638844 0 98.13570375 18.62385281 135.38724751 55.88594907C684.64694563 136.52113438 703.26983938 181.65469437 703.26983938 234.64820469L703.26983938 234.64820469 703.26983938 234.64820469 703.26983938 234.64820469z"></path></symbol><symbol id="layx-icon-destroy" viewBox="0 0 1024 1024"><path d="M933.89254819 139.71606348L884.23129279 90.08990363 511.96490363 462.39138834 140.40044113 90.82692583 90.84447403 140.34779656 462.40893653 511.91225907 90.10745181 884.2137446 139.73361166 933.875 512.03509637 561.53841892 883.59955887 933.10288141 933.15552597 883.58201068 561.59106347 512.01754819Z"></path></symbol><symbol id="layx-icon-error" viewBox="0 0 1024 1024"><path d="M482 50.66666667C235.99999999 50.66666667 32 254.66666667 32 500.66666667s204.00000001 450 450 450 450-204.00000001 450-450S728 50.66666667 482 50.66666667z m192 576c18 18 18 42 0 60-18 18-42 18-60 0L488 560.66666667 356 692.66666667c-18 18-48 18-66 0-18-18-18-48 0-66L422 494.66666667 296 368.66666667c-18-18-18-42 0-60 18-18 42-18 60 0L482 434.66666667l132-132c18-18 48-18 66 0 18 18 18 48-1e-8 66L548 500.66666667l126 126z" fill=""></path></symbol><symbol id="layx-icon-stick" viewBox="0 0 1024 1024"><path d="M863.92416068 184.3484319H160.07583932a50.27488011 50.27488011 0 0 1 0-100.5497602h703.84832136a50.27488011 50.27488011 0 0 1 0 100.5497602z m-50.27488007 804.39808157a50.22460522 50.22460522 0 0 1-35.69516489-14.57971521L512 708.21268254l-265.95411572 265.95411572A50.27488011 50.27488011 0 0 1 160.07583932 938.47163339V335.1730722a50.27488011 50.27488011 0 0 1 50.27488007-50.27488013h603.29856122a50.27488011 50.27488011 0 0 1 50.27488007 50.27488013v603.29856119a50.27488011 50.27488011 0 0 1-50.27488007 50.27488008z m-301.64928061-402.19904078a50.22460522 50.22460522 0 0 1 35.69516487 14.57971522L763.37440051 816.80642355V385.44795228H260.62559949v431.86122007l215.67923564-215.67923564A50.27488011 50.27488011 0 0 1 512 586.54747269z"></path></symbol></svg>
+    <div class="lg-container">
+        <div class="lg-top">
+            <span><a href="/v5/toCustomer" target="_blank" class="service col-lightblue">客服</a></span>
+        </div>
+        <div class="pad60">
+                        <h3 class="lg-title">登录</h3>
+                    <div class="tab-list">
+                <form action="/submit" method="post">
+                    <input type="hidden" id="fid" name="fid" value="-1">
+                    <input type="hidden" id="pid" name="pid" value="-1">
+                    <input type="hidden" id="refer" name="refer" value="https%3A%2F%2Fi.chaoxing.com">
+                    <input type="hidden" id="_blank" value="1">
+                    <input type="hidden" id="quick" value="0">
+                    <input type="hidden" id="t" name="t" value="true">
+                    <input type="hidden" id="forbidotherlogin" name="forbidotherlogin" value="0">
+                    <input type="hidden" id="doubleFactorLogin" name="doubleFactorLogin" value="0">
+                    <input type="hidden" id="independentId" name="independentId" value="0">
+                    <!--电话号码-->
+                    <div class="lg-item icon-tel margin-btm60">
+                        <input type="text" class="ipt-tel" placeholder="手机号/超星号" id="phone" name="phone" maxlength="50">
+                        <p class="err-txt" id="phoneMsg"></p>
+                    </div>
+                    <!--密码-->
+                    <div class="lg-item item-pwd icon-pwd">
+                        <input type="password" style="padding-right: 2.5rem;" class="ipt-pwd" placeholder="密码" id="pwd" name="pwd" maxlength="20">
+                        <i class="icon-eye icon-eye-close" onclick="initPassword(this)"></i>
+                        <a href="javascript:void(0)" onclick="toFindPwd()" class="col-lightblue pos-r24">忘记密码？</a>
+                        <p class="err-txt" id="pwdMsg"></p>
+                    </div>
+                    <div class="btns-box">
+                        <p class="err-tip" id="err-txt"></p>
+                        <!--按钮不可点击 加上class：disable -->
+                        <button type="submit" class="btn-big-blue margin-btm24" >登录</button>
+                       
+                    </div>
+
+                    
+                </form>
+                 <div class="yzm-con fs14 pad20">
+                                        <a href="javaScript:void(0)" class="col-blue fl" onclick="toRegister()">新用户注册</a>
+                                                <a href="javaScript:void(0)" class="col-blue fr" onclick="otherLogin(2)">手机验证码登录</a>
+                                                        </div>
+    
+                <div class="bom-info">
+                                    <p onclick="otherLogin(3)">其它登录方式</p>
+                                    <p>登录即表示同意平台<a target="_blank" href="https://homewh.chaoxing.com/agree/privacyPolicy?appId=900001">《隐私政策》</a>和<a target="_blank" href="https://homewh.chaoxing.com/agree/userAgreement?appId=900001">《用户协议》</a></p>
+                </div>
+            </div>
+            <div class="QR-list">
+                <div class="QR-code">
+                    <style>
+        .social-login {
+            color: #91A0B5;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 30px;
+        }
+    
+        .social-login span {
+            display: inline-block;
+            margin: 0 10px;
+        }
+    
+        .social-login span i {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 6px;
+        }
+    
+        .social-login span i img {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+        }
+    
+        .social-login span.marLeft30 {
+            margin-left: 30px;
+        }
+    
+        .Rmain-cont p {
+            text-align: center;
+        }
+    
+    </style>
+    <div class="right" id="rightdiv">
+        <div id="step1">
+            <div class="ecode-box" style="position: relative;">
+                <style>
+                    .ewmDisable {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        background: rgba(255, 255, 255, 0.9);
+                        z-index: 3;
+                        display: none;
+                    }
+    
+                    .ewmDisable p {
+                        width: 100%;
+                        text-align: center;
+                        font-size: 21px;
+                        color: #181e33;
+                        margin-top: 80px;
+                    }
+    
+                    .ewmDisable a {
+                        display: inline-block;
+                        width: 94px;
+                        height: 34px;
+                        background: #FFFFFF;
+                        border: 1px solid #3A8BFF;
+                        border-radius: 18px;
+                        margin: 0 auto;
+                        text-align: center;
+                        line-height: 34px;
+                        font-size: 14px;
+                        color: #3A8BFF;
+                        margin-top: 15px;
+                    }
+                </style>
+                <div class="ewmDisable" style="display: block;">
+                    <p>二维码已失效</p>
+                    <a href="javascript:void(0);" onclick="refreshQRCode();">重新获取</a>
+                </div>
+                <input type="hidden" value="8dbf5d4fadb440e5852c5b3578769d56" id="uuid">
+                <input type="hidden" value="78603b7686ee4d20da5442fb2d457384" id="enc">
+                <img src="static/createqr?uuid=8dbf5d4fadb440e5852c5b3578769d56&amp;fid=-1" id="quickCode">
+                <span id="ahszk_custom" style="width: 30px; height: 30px; display: none; position: absolute; left: 50%; top: 50%; margin-left: -12px; margin-top: -15px;">
+            <img src="static/ahszk.png" style="width:30px;height:30px;">
+            </span>
+            </div>
+            <p class="fs14 colorIn tip" id="quickCodeMsg">使用学习通APP扫码登录</p>
+        </div>
+    
+        <div class="social-login" style="display: none" id="thirdLogin">社交账号登录
+            <span onclick="to_third_login('weixin')" class="marLeft30" style=" cursor: pointer;">
+                <i><img src="static/weixin.png"></i>微信
+            </span>
+            <span onclick="to_third_login('qq')" style=" cursor: pointer; ">
+                <i><img src="static/qq.png"></i>QQ
+            </span>
+        </div>
+    
+        <div class="Rmain-cont" style="display:none" id="step2">
+            <div class="g_code_end">
+                <img src="" alt="" id="photo">
+            </div>
+            <p class="g_code_name mt30" id="shownickname"></p>
+            <p class="g_code_over">请在学习通上点击确认以登录</p>
+            <p class="g_code_btn" onclick="refreshQRCode();" style="cursor:pointer;color: #3A8BFF;">返回扫码</p>
+        </div>
+    </div>
+    <script>
+        /***/
+        function to_third_login(type, ref) {
+            var fd = $("#fid").val();
+            if ("qq" == type) {
+                window.location.href = "/oauth2/qq?newversion=true&fid=" + fd + "&refer=" + $("#refer").val();
+            } else if ("weixin" == type) {
+                window.location.href = "/oauth2/weixin?newversion=true&fid=" + fd + "&refer=" + $("#refer").val();
+            }
+        }
+    
+        function hideQRcode() {
+            $(".right").hide();
+            $(".default-login-main").attr("class", "main default-login-min");
+        }
+    
+        function changeUser() {
+            window.location.reload();
+        }
+    
+        var qrInterValObj;
+        var enc = $("#enc").val();
+        var uuid = $("#uuid").val();
+        var ref = decodeURIComponent($("#refer").val());
+        var c = 0;
+    
+        //定制不显示二维码
+        if (-1 == 34415) {
+            $("#quickCode").attr("src", "images/guide/34415ewm.png");
+            $("#quickCodeMsg").html("扫一扫下载移动客户端");
+        } else if (-1 == 9566) {
+            $("#quickCode").attr("src", "images/guide/9566ewm.jpg");
+            $("#quickCodeMsg").html("扫一扫关注微信公众号");
+        } else {
+            qrInterValObj = window.setInterval(loopStatus, 3000); //启动计时器，1秒执行一次
+            if (-1 == 35014) {
+                $("#quickCodeMsg").html("国科大在线APP扫码登录");
+                //定制二维码扫码后提示语修改
+                $("#step2 p.g_code_over").html("请在移动端上点击确认以登录");
+            }
+        }
+    
+        //重新加载二维码
+        function refreshQRCode() {
+            jQuery.ajax({
+                url: "/refreshQRCode",
+                type: 'post',
+                async: true,
+                dataType: 'json',
+                success: function (data){
+                    enc = data.enc;
+                    uuid = data.uuid;
+                    $("#quickCode").attr("src","/createqr?uuid="+uuid+"&fid=-1")
+                    $("#step1").show();
+                    $("#step2").hide();
+                    $(".ewmDisable").hide();
+                }
+            });
+        }
+    
+        function loopStatus() {
+            jQuery.ajax({
+                url: "/getauthstatus",
+                type: 'post',
+                async: true,
+                data: {"enc": enc, "uuid": uuid},
+                dataType: 'json',
+                success: function (data) {
+                    if (c >= 50) {
+                        window.clearInterval(qrInterValObj);//停止计时器
+                        $(".ewmDisable").show();
+                    }
+                    c++;//记录循环次数
+                    if (data.status) {
+                        window.clearInterval(qrInterValObj);//停止计时器
+                        $("#logining").show();
+                        if (ref != "undefined" && ref != '') {
+                            if (ref == window.location.href) {
+                                var url = "http://i.mooc.chaoxing.com/space/index";
+                                if (top.location != self.location) {
+                                    top.location = url;
+                                } else {
+                                    window.location = url;
+                                }
+                            } else {
+                                var url = ref;
+    
+                                if (top.location != self.location) {
+                                    top.location = url;
+                                } else {
+                                    window.location = url;
+                                }
+                            }
+                        } else {
+                            var url = "http://i.mooc.chaoxing.com/space/index";
+                            if (window.parent != this.window) {
+                                window.open(url, "_blank");
+                            } else {
+                                location.href = url;
+                            }
+                        }
+                    } else {
+                        if (data.type == 4) {//客户端扫码后二维码图片变用户信息
+                            $("#shownickname").html(data.nickname);
+                            $("#photo").attr('src', "http://photo.chaoxing.com/p/" + data.uid + "_160");
+                            $("#step1").hide();
+                            $("#step2").show();
+                        } else if (data.type == 6) {//客户端取消
+                            refreshQRCode();
+                        }
+                    }
+                }
+            });
+        }
+    
+        if ($("#refer").val().indexOf("ahszk.portal.chaoxing.com") != -1) {
+            $("#quickCodeMsg").html("使用移动端扫码登录");
+            $("#ahszk_custom").show();
+        } else {
+            $("#ahszk_custom").hide();
+        }
+        if (navigator.userAgent.indexOf("1000332") != -1) {
+            $("#rightdiv").css("position", "relative");
+            $("#rightdiv").css("margin", "0 auto");
+            $("#rightdiv").css("border-left", "0 ");
+            $("#quickCodeMsg").html("使用学在西电扫码登录");
+        }
+    
+        if ($("#refer").val().indexOf("dayi100.com") != -1) {
+            $("#quickCodeMsg").html("使用大医精诚APP扫码登录");
+        }
+    </script>            </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let userAgent = navigator.userAgent;
+        if (userAgent.indexOf("xidian")>-1 && userAgent.indexOf("_1000332")>-1){
+            $("div.login-box div").hide()
+        }
+    </script>
+    
+    
+    </body></html>
